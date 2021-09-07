@@ -1,0 +1,18 @@
+components:
+  schemas:
+    SampleReq:
+      type: object
+      required:
+        - param1
+        - param2
+      properties:
+        company:
+          type: string
+        date:
+          type: string
+        close:
+          type: number
+          format: double
+        volume:
+          type: number
+          format: integer

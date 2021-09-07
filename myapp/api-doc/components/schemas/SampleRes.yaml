@@ -1,0 +1,18 @@
+components:
+  schemas:
+    SampleRes:
+      type: object
+      required:
+        - anyString
+        - anyNumber
+      properties:
+        company:
+          type: string
+        date:
+          type: string
+        close:
+          type: number
+          format: double
+        volume:
+          type: number
+          format: integer

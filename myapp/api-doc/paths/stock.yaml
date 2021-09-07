@@ -1,0 +1,106 @@
+paths:
+  /stock/{company}:
+    get:
+      summary: 회사의 주식정보보기
+      tags:
+        - Stocks
+      parameters:
+        - in: path  
+          name: company
+          required: true
+          description: The name of the company to return.
+          schema:
+            type : string
+      responses:
+        201:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SampleRes"
+              example:
+                company: "IBM"
+                date: "20210803"
+                clsoe: 140.92
+                volume: 3342627
+        400:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /stock/{company}/{timescale}:
+    get:
+      summary: 회사의 기간별 데이터
+      tags:
+        - Stocks
+      parameters:
+        - in: path  
+          name: company
+          required: true
+          description: The name of the company to return. (ibm, orcl, uber ..)
+          schema:
+            type : string
+        - in: path  
+          name: timescale
+          required: true
+          description: daily, week, 1month, 3month, 1year, 3year, 5year ..
+          schema:
+            type : string
+      responses:
+        201:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SampleRes"
+              example:
+                company: "IBM"
+                date: "20210803"
+                clsoe: 140.92
+                volume: 3342627
+        400:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /stock/{company}/date/{date}:
+    get:
+      summary: 회사의 어느 날짜의 주식정보보기
+      tags:
+        - Stocks
+      parameters:
+        - in: path
+          name: company
+          required: true
+          description: The name of the company to return.
+          schema:
+            type : string
+        - in: path
+          name: date
+          required: true
+          description: The name of the company to return.
+          schema:
+            type : string
+      responses:
+        201:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SampleRes"
+              example:
+                company: "IBM"
+                date: "20210713"
+                clsoe: 140.92
+                volume: 3342627
+        400:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+
+
